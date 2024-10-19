@@ -9,14 +9,15 @@ import './App.css';  // Import your CSS here
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD3uHUf0UX6GBxan_9ewh8985klfupwSsU",
-  authDomain: "wheelchair-de130.firebaseapp.com",
-  databaseURL: "https://wheelchair-de130-default-rtdb.asia-southeast1.firebasedatabase.app/",
-  projectId: "wheelchair-de130",
-  storageBucket: "wheelchair-de130.appspot.com",
-  messagingSenderId: "978586788923",
+  apiKey: "AIzaSyDhuCGgOrIMpw_T6vEg0XTJtn9Thju82mM",
+  authDomain: "wheelchair-85175.firebaseapp.com",
+  databaseURL: "https://wheelchair-85175-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  projectId: "wheelchair-85175",
+  storageBucket: "wheelchair-85175.appspot.com",
+  messagingSenderId: "1078287864607",
   appId: "YOUR_APP_ID" // Replace with your app ID from Firebase project settings
 };
+
 
 // Initialize Firebase app and database
 const app = initializeApp(firebaseConfig);
@@ -164,7 +165,9 @@ const handleDirectionEnd = () => {
     console.log('Slider value:', newValue);
   };
 
-  const mapSrc = `https://www.google.com/maps/embed/v1/view?key=AIzaSyDGjZObV-fDdbdNNzY2HPZ6NossfINjEHs&center=${latitude},${longitude}&zoom=15`;
+
+
+  const mapSrc = `https://www.google.com/maps/embed/v1/view?key=AIzaSyBuzxW-JdJsb4hKk8J1t1KPYzWRuhYTrI8&center=${latitude},${longitude}&zoom=15`;
 
 
   
