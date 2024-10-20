@@ -36,9 +36,21 @@ function App() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [cctvStream, setCctvStream] = useState("https://wasp-trusty-sheep.ngrok-free.app/?action=stream"); // CCTV stream URL
+
 
 
   const mapRef = useRef(null);
+
+
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCctvStream(`https://wasp-trusty-sheep.ngrok-free.app/?action=stream&timestamp=${Date.now()}`); // Update stream
+    }, 5000); // Update every 5 seconds
+
+    return () => clearInterval(interval); // Clean up on unmount
+  }, []);
 
 
 
@@ -307,8 +319,8 @@ const handleDirectionEnd = () => {
         <div style={styles.videoContainer}>
           {/* <h2 style={styles.label}>CCTV Camera</h2> */}
           <iframe
-            src="https://wasp-trusty-sheep.ngrok-free.app/?action=stream"
-            title="CCTV Camera"
+           src={cctvStream}
+           title="CCTV Camera"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
