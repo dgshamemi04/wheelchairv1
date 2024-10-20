@@ -72,6 +72,8 @@ function App() {
   useEffect(() => {
     const latRef = ref(database, 'latitude');
     const lonRef = ref(database, 'longitude');
+    const sliderRef = ref(database, 'sliderValue'); // Reference for slider value
+
 
     // Listen for changes in latitude
     onValue(latRef, (snapshot) => {
@@ -88,6 +90,19 @@ function App() {
         setLongitude(lonValue);
       }
     });
+
+
+    // Listen for changes in slider value
+    onValue(sliderRef, (snapshot) => {
+      const sliderVal = snapshot.val();
+      if (sliderVal !== null) {
+        setSliderValue(sliderVal);
+      }
+    });
+
+
+
+
   }, [database]);
 /// Handle 
 
