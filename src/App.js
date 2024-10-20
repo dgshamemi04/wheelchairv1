@@ -43,15 +43,18 @@ function App() {
   const mapRef = useRef(null);
 
 
-
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCctvStream(`https://wasp-trusty-sheep.ngrok-free.app/?action=stream&timestamp=${Date.now()}`); // Update stream
-    }, 5000); // Update every 5 seconds
+    // Function to check if the user is on a mobile device
+    const isMobile = () => /Mobi|Android/i.test(navigator.userAgent);
 
-    return () => clearInterval(interval); // Clean up on unmount
-  }, []);
+    if (isMobile()) {
+      const interval = setInterval(() => {
+        setCctvStream(`https://wasp-trusty-sheep.ngrok-free.app/?action=stream&timestamp=${Date.now()}`); // Update stream
+      }, 5000); // Update every 5 seconds
 
+      return () => clearInterval(interval); // Clean up on unmount
+    }
+  }, []); // No dependencies
 
 
   useEffect(() => {
